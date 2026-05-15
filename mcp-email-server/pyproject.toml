@@ -1,0 +1,18 @@
+[project]
+name = "mcp-onprem-email"
+version = "0.1.0"
+description = "MCP server for on-premise email accounts via IMAP + SMTP"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.2.0",
+]
+
+[project.scripts]
+mcp-onprem-email = "server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["server"]

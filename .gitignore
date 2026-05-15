@@ -6,3 +6,6 @@ dist-ssr
 *.log
 .env
 .env.*
+!*.env.example
+__pycache__/
+*.pyc
