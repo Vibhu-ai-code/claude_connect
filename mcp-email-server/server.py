@@ -16,6 +16,14 @@ Configuration via environment variables:
   SMTP_USE_SSL      "true" to use implicit SSL (default: false)
   SMTP_FROM         Default From: address (default: SMTP_USER)
   SMTP_TIMEOUT      Socket timeout in seconds (default: 30)
+
+Transport (how clients connect to this MCP server):
+  MCP_TRANSPORT     "stdio" (default), "http" (streamable-http), or "sse"
+  MCP_HOST          Bind address for http/sse (default: 0.0.0.0)
+  MCP_PORT          Bind port for http/sse (default: 8765)
+  MCP_SSL_CERT      Path to TLS certificate (PEM). Enables HTTPS.
+  MCP_SSL_KEY       Path to TLS private key (PEM). Enables HTTPS.
+  MCP_AUTH_TOKEN    If set, clients must send "Authorization: Bearer <token>".
 """
 
 from __future__ import annotations
@@ -500,8 +508,57 @@ def send_email(
     }
 
 
+def _bearer_auth_middleware(app, token: str):
+    async def middleware(scope, receive, send):
+        if scope["type"] != "http":
+            await app(scope, receive, send)
+            return
+        headers = dict(scope.get("headers") or [])
+        provided = headers.get(b"authorization", b"").decode("latin-1")
+        expected = f"Bearer {token}"
+        if provided != expected:
+            await send({
+                "type": "http.response.start",
+                "status": 401,
+                "headers": [(b"content-type", b"application/json"),
+                            (b"www-authenticate", b"Bearer")],
+            })
+            await send({"type": "http.response.body", "body": b'{"error":"unauthorized"}'})
+            return
+        await app(scope, receive, send)
+    return middleware
+
+
 def main() -> None:
-    mcp.run()
+    transport = (os.environ.get("MCP_TRANSPORT") or "stdio").lower()
+
+    if transport == "stdio":
+        mcp.run()
+        return
+
+    if transport in ("http", "streamable-http"):
+        app = mcp.streamable_http_app()
+    elif transport == "sse":
+        app = mcp.sse_app()
+    else:
+        raise SystemExit(f"Unknown MCP_TRANSPORT: {transport!r}")
+
+    token = os.environ.get("MCP_AUTH_TOKEN")
+    if token:
+        app = _bearer_auth_middleware(app, token)
+
+    import uvicorn
+
+    kwargs: dict[str, Any] = {
+        "host": os.environ.get("MCP_HOST", "0.0.0.0"),
+        "port": int(os.environ.get("MCP_PORT", "8765")),
+    }
+    cert = os.environ.get("MCP_SSL_CERT")
+    key = os.environ.get("MCP_SSL_KEY")
+    if cert and key:
+        kwargs["ssl_certfile"] = cert
+        kwargs["ssl_keyfile"] = key
+    uvicorn.run(app, **kwargs)
 
 
 if __name__ == "__main__":
