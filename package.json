@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:extension": "node extension/test/unit.test.mjs",
+    "test:extension:e2e": "node extension/test/e2e.test.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

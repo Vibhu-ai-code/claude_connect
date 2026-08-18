@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/options.css" />
+    <title>Backlink Builder — Settings</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="head">
+        <img src="icons/icon48.png" alt="" width="34" height="34" />
+        <div>
+          <h1>Backlink Builder</h1>
+          <p class="muted">Everything is stored locally in your browser. Nothing is sent anywhere.</p>
+        </div>
+      </header>
+
+      <div id="welcome" class="welcome hidden">
+        <strong>Welcome.</strong> Add the domain you are building links to below, then browse normally —
+        the toolbar icon tells you whether each page already links to you and whether that link counts.
+      </div>
+
+      <section class="card">
+        <h2>Your site</h2>
+        <label for="targets">Domains you are building links to (one per line)</label>
+        <textarea id="targets" placeholder="moolchandhealthcare.com&#10;blog.moolchandhealthcare.com"></textarea>
+        <p class="help">Subdomains of anything listed here count too. Leave off <code>https://</code> and <code>www.</code>.</p>
+
+        <div class="grid">
+          <div>
+            <label for="targetUrl">Default page you want linked</label>
+            <input id="targetUrl" type="url" placeholder="https://moolchandhealthcare.com/services" />
+          </div>
+          <div>
+            <label for="mySite">Site name used in outreach</label>
+            <input id="mySite" type="text" placeholder="Moolchand Healthcare" />
+          </div>
+        </div>
+
+        <label for="anchors">Anchor text variants (one per line)</label>
+        <textarea id="anchors" placeholder="paediatric care in Delhi&#10;multi-speciality hospital&#10;Moolchand Healthcare"></textarea>
+        <p class="help">The first line is suggested by default when you save an opportunity.</p>
+      </section>
+
+      <section class="card">
+        <h2>Outreach identity</h2>
+        <div class="grid">
+          <div>
+            <label for="myName">Your name</label>
+            <input id="myName" type="text" placeholder="Priya Sharma" />
+          </div>
+          <div>
+            <label for="myEmail">Your email</label>
+            <input id="myEmail" type="email" placeholder="you@example.com" />
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Outreach template</h2>
+        <label for="outreachSubject">Subject</label>
+        <input id="outreachSubject" type="text" />
+        <label for="outreachBody">Body</label>
+        <textarea id="outreachBody" rows="14"></textarea>
+        <p class="help">
+          Placeholders:
+          <code>{{pageTitle}}</code> <code>{{pageUrl}}</code> <code>{{domain}}</code>
+          <code>{{anchor}}</code> <code>{{targetUrl}}</code>
+          <code>{{myName}}</code> <code>{{myEmail}}</code> <code>{{mySite}}</code>
+        </p>
+        <button id="resetTemplate" class="tiny">Reset to default template</button>
+      </section>
+
+      <section class="card">
+        <h2>Behaviour</h2>
+        <label class="check">
+          <input id="autoBadge" type="checkbox" />
+          <span>Show a badge on the toolbar icon summarising each page as I browse</span>
+        </label>
+        <p class="help">
+          When on, the extension checks each page you open for links to your domains. Turn it off if you
+          would rather it only look when you open the popup.
+        </p>
+      </section>
+
+      <section class="card danger-zone">
+        <h2>Data</h2>
+        <div class="row">
+          <button id="clearData" class="danger">Delete all saved opportunities</button>
+          <span class="muted" id="dataCount"></span>
+        </div>
+      </section>
+
+      <div class="savebar">
+        <button id="save" class="primary">Save settings</button>
+        <span id="status" class="muted"></span>
+      </div>
+    </div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <title>Backlink Builder — Dashboard</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <img src="icons/icon32.png" alt="" width="22" height="22" />
+      <h1>Backlink Builder</h1>
+      <span class="spacer"></span>
+      <button id="openOptions" class="ghost">Settings</button>
+    </header>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="toolbar">
+      <input id="search" type="search" placeholder="Search domain, title, anchor, notes…" />
+      <select id="filterStatus"><option value="">All statuses</option></select>
+      <select id="filterType"><option value="">All types</option></select>
+      <select id="sort">
+        <option value="updatedAt">Recently updated</option>
+        <option value="createdAt">Recently added</option>
+        <option value="domain">Domain A–Z</option>
+        <option value="status">Status</option>
+      </select>
+      <span class="spacer"></span>
+      <button id="verifyBtn" title="Fetch each page and check whether your link is there">Verify</button>
+      <button id="exportCsv">CSV</button>
+      <button id="exportJson">Backup</button>
+      <button id="importBtn">Restore</button>
+      <button id="deleteBtn" class="danger">Delete</button>
+      <input id="importFile" type="file" accept="application/json" hidden />
+    </section>
+
+    <div id="progress" class="progress hidden"></div>
+
+    <main>
+      <table id="table">
+        <thead>
+          <tr>
+            <th class="checkcol"><input id="checkAll" type="checkbox" /></th>
+            <th>Site</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Anchor</th>
+            <th>Link</th>
+            <th>Contact</th>
+            <th>Checked</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p id="empty" class="empty hidden">
+        No opportunities yet. Browse to a page worth a link and hit <strong>Save opportunity</strong> in the popup.
+      </p>
+    </main>
+
+    <script type="module" src="dashboard.js"></script>
+  </body>
+</html>

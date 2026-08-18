@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/popup.css" />
+    <title>Backlink Builder</title>
+  </head>
+  <body>
+    <header class="bar">
+      <img src="icons/icon32.png" alt="" width="18" height="18" />
+      <strong>Backlink Builder</strong>
+      <span class="spacer"></span>
+      <button id="openDashboard" class="ghost tiny" title="Open dashboard">Dashboard</button>
+      <button id="openOptions" class="ghost tiny" title="Settings">Settings</button>
+    </header>
+
+    <div id="setupNotice" class="notice hidden">
+      <strong>Add your domain first.</strong>
+      <p>Backlink Builder needs to know which site you are building links to before it can spot them.</p>
+      <button id="setupBtn" class="primary tiny">Open settings</button>
+    </div>
+
+    <main id="main">
+      <section class="page-card">
+        <div class="page-domain mono" id="pageDomain">—</div>
+        <div class="page-title" id="pageTitle">Reading page…</div>
+        <div class="page-url mono truncate" id="pageUrl"></div>
+      </section>
+
+      <section id="verdict" class="verdict"></section>
+
+      <section class="block" id="targetLinksBlock" hidden>
+        <h2>Links to your site</h2>
+        <ul class="link-list" id="targetLinks"></ul>
+      </section>
+
+      <section class="block" id="signalsBlock" hidden>
+        <h2>Opportunity signals</h2>
+        <div class="pill-row" id="signals"></div>
+      </section>
+
+      <section class="block" id="contactsBlock" hidden>
+        <h2>Contacts found</h2>
+        <ul class="contact-list" id="contacts"></ul>
+      </section>
+
+      <section class="block">
+        <h2>Save as opportunity</h2>
+        <div class="grid-2">
+          <div>
+            <label for="fType">Type</label>
+            <select id="fType"></select>
+          </div>
+          <div>
+            <label for="fStatus">Status</label>
+            <select id="fStatus"></select>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <label for="fAnchor">Anchor text</label>
+            <input id="fAnchor" type="text" list="anchorList" placeholder="e.g. paediatric care" />
+            <datalist id="anchorList"></datalist>
+          </div>
+          <div>
+            <label for="fTargetUrl">Your target URL</label>
+            <input id="fTargetUrl" type="url" placeholder="https://…" />
+          </div>
+        </div>
+        <label for="fNotes">Notes</label>
+        <textarea id="fNotes" placeholder="Submission steps, contact name, price, follow-up date…"></textarea>
+        <div class="actions">
+          <button id="saveBtn" class="primary">Save opportunity</button>
+          <button id="copyOutreach">Copy outreach</button>
+          <button id="mailBtn" title="Open your mail client">Email</button>
+          <span class="spacer"></span>
+          <button id="deleteBtn" class="danger tiny hidden">Delete</button>
+        </div>
+        <div id="saveHint" class="hint"></div>
+      </section>
+
+      <section class="block" id="statsBlock">
+        <h2>Page stats</h2>
+        <div class="stats" id="stats"></div>
+      </section>
+    </main>
+
+    <footer class="bar foot">
+      <span id="count" class="muted">—</span>
+      <span class="spacer"></span>
+      <button id="exportBtn" class="ghost tiny">Export CSV</button>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
