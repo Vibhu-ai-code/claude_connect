@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12836f"/>
+      <stop offset="1" stop-color="#0b5346"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#g)"/>
+  <!-- medical cross -->
+  <path d="M52 24h24v28h28v24H76v28H52V76H24V52h28z" fill="#ffffff"/>
+  <!-- chain link, bottom-right -->
+  <g transform="translate(70 70)">
+    <circle cx="26" cy="26" r="27" fill="#0b5346"/>
+    <path d="M17 35a11 11 0 0 1 0-16l7-7a11 11 0 0 1 16 16l-3 3" fill="none" stroke="#e8b647" stroke-width="7" stroke-linecap="round"/>
+    <path d="M35 17a11 11 0 0 1 0 16l-7 7a11 11 0 0 1-16-16l3-3" fill="none" stroke="#e8b647" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

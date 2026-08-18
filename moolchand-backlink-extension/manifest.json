@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Moolchand Backlink Builder",
+  "short_name": "Backlink Builder",
+  "version": "1.0.0",
+  "description": "Find, create and track relevant backlinks for moolchandhealthcare.com - page analysis, curated healthcare link sources, snippets and outreach.",
+  "minimum_chrome_version": "102",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Moolchand Backlink Builder",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "tabs"
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"]
+}

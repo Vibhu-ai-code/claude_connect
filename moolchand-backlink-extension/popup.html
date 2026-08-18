@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Moolchand Backlink Builder</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="icons/icon32.png" alt="" width="22" height="22" />
+      <div>
+        <strong id="brandName">Moolchand Healthcare</strong>
+        <span id="brandDomain">moolchandhealthcare.com</span>
+      </div>
+    </div>
+    <button id="openOptions" class="icon-btn" title="Settings">⚙</button>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab is-active" data-tab="page">Page</button>
+    <button class="tab" data-tab="ideas">Ideas</button>
+    <button class="tab" data-tab="tracker">Tracker</button>
+    <button class="tab" data-tab="tools">Tools</button>
+  </nav>
+
+  <main>
+    <!-- ------------------------------------------------------------ PAGE -->
+    <section id="tab-page" class="panel is-active">
+      <div class="row-between">
+        <h2>Current page</h2>
+        <button id="rescan" class="btn btn-ghost">Re-scan</button>
+      </div>
+      <div id="pageResult" class="stack"><p class="muted">Scanning…</p></div>
+    </section>
+
+    <!-- ----------------------------------------------------------- IDEAS -->
+    <section id="tab-ideas" class="panel">
+      <div class="filters">
+        <input id="ideaSearch" type="search" placeholder="Search 64 link sources…" />
+        <div class="filter-row">
+          <select id="ideaCategory"><option value="">All categories</option></select>
+          <select id="ideaDifficulty">
+            <option value="">Any effort</option>
+            <option>Easy</option><option>Medium</option><option>Hard</option>
+          </select>
+          <select id="ideaCost">
+            <option value="">Any cost</option>
+            <option>Free</option><option>Mixed</option><option>Paid</option>
+          </select>
+        </div>
+      </div>
+      <p id="ideaCount" class="muted small"></p>
+      <div id="ideaList" class="stack"></div>
+    </section>
+
+    <!-- --------------------------------------------------------- TRACKER -->
+    <section id="tab-tracker" class="panel">
+      <div id="trackerStats" class="stats"></div>
+      <div class="filter-row">
+        <select id="trackerStatus"><option value="">All statuses</option></select>
+        <button id="verifyAll" class="btn btn-ghost">Verify live links</button>
+      </div>
+      <div id="trackerList" class="stack"></div>
+      <div class="row-between footer-actions">
+        <div>
+          <button id="exportCsv" class="btn btn-ghost">Export CSV</button>
+          <button id="exportJson" class="btn btn-ghost">Export JSON</button>
+        </div>
+        <button id="clearAll" class="btn btn-danger">Clear all</button>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------- TOOLS -->
+    <section id="tab-tools" class="panel">
+      <details open>
+        <summary>Backlink snippet builder</summary>
+        <label>Destination URL
+          <input id="snipUrl" type="url" placeholder="https://www.moolchandhealthcare.com/…" />
+        </label>
+        <label>Anchor text
+          <select id="snipAnchorPreset"></select>
+        </label>
+        <input id="snipAnchor" type="text" placeholder="Anchor text" />
+        <label class="check"><input id="snipUtm" type="checkbox" checked /> Append UTM tracking parameters</label>
+        <label class="check"><input id="snipNofollow" type="checkbox" /> Mark as rel="sponsored nofollow" (paid placement)</label>
+        <div class="snippet-out">
+          <div class="snip"><span>HTML</span><code id="outHtml"></code><button class="btn btn-copy" data-copy="outHtml">Copy</button></div>
+          <div class="snip"><span>Markdown</span><code id="outMd"></code><button class="btn btn-copy" data-copy="outMd">Copy</button></div>
+          <div class="snip"><span>BBCode</span><code id="outBb"></code><button class="btn btn-copy" data-copy="outBb">Copy</button></div>
+          <div class="snip"><span>Plain URL</span><code id="outUrl"></code><button class="btn btn-copy" data-copy="outUrl">Copy</button></div>
+        </div>
+      </details>
+
+      <details>
+        <summary>NAP citation block &amp; schema</summary>
+        <p class="muted small">Paste this exact block into every directory so your name, address and phone stay consistent.</p>
+        <pre id="outNap" class="pre"></pre>
+        <button class="btn btn-copy" data-copy="outNap">Copy citation</button>
+        <p class="muted small">Structured data for the hospital website:</p>
+        <pre id="outSchema" class="pre"></pre>
+        <button class="btn btn-copy" data-copy="outSchema">Copy JSON-LD</button>
+      </details>
+
+      <details>
+        <summary>Outreach email</summary>
+        <label>Template <select id="tplSelect"></select></label>
+        <div class="filter-row">
+          <input id="tplContact" type="text" placeholder="Contact name (e.g. Priya)" />
+          <input id="tplDomain" type="text" placeholder="Target site (e.g. example.com)" />
+        </div>
+        <label>Subject <input id="tplSubject" type="text" /></label>
+        <textarea id="tplBody" rows="12"></textarea>
+        <div class="filter-row">
+          <button class="btn btn-copy" data-copy="tplBody">Copy email</button>
+          <button id="tplMailto" class="btn btn-primary">Open in mail app</button>
+        </div>
+      </details>
+
+      <details>
+        <summary>Prospect finder (search operators)</summary>
+        <p class="muted small">Opens a Google search built for finding link targets. Vet every result against the checklist below.</p>
+        <div id="operatorList" class="stack"></div>
+      </details>
+
+      <details>
+        <summary>Link quality checklist</summary>
+        <ul id="checklist" class="checklist"></ul>
+      </details>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

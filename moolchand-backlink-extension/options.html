@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Moolchand Backlink Builder - Settings</title>
+  <link rel="stylesheet" href="popup.css" />
+  <style>
+    body { width: auto; max-width: 720px; max-height: none; margin: 0 auto; padding: 0 0 40px; }
+    main { padding: 20px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    h1 { font-size: 18px; margin: 0 0 4px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="icons/icon32.png" alt="" width="22" height="22" />
+      <div><strong>Backlink Builder settings</strong><span>Used across snippets, citations and outreach</span></div>
+    </div>
+  </header>
+  <main>
+    <h1>Brand &amp; site</h1>
+    <div class="grid">
+      <label>Brand name <input id="brand" type="text" /></label>
+      <label>Website URL <input id="site" type="url" /></label>
+      <label>Target domain (used for link detection) <input id="targetDomain" type="text" /></label>
+      <label>Phone <input id="phone" type="text" /></label>
+    </div>
+    <label>Address (exactly as on Google Business Profile) <input id="address" type="text" /></label>
+
+    <h1 style="margin-top:24px">Outreach sender</h1>
+    <div class="grid">
+      <label>Your name <input id="senderName" type="text" placeholder="e.g. Ananya Sharma" /></label>
+      <label>Your role <input id="senderRole" type="text" /></label>
+    </div>
+    <label>Your email <input id="senderEmail" type="email" placeholder="name@moolchandhealthcare.com" /></label>
+
+    <h1 style="margin-top:24px">UTM tracking</h1>
+    <label class="check"><input id="useUtm" type="checkbox" /> Append UTM parameters to generated links</label>
+    <div class="grid">
+      <label>utm_source <input id="utmSource" type="text" /></label>
+      <label>utm_medium <input id="utmMedium" type="text" /></label>
+    </div>
+    <label>utm_campaign <input id="utmCampaign" type="text" /></label>
+
+    <p style="margin-top:20px">
+      <button id="save" class="btn btn-primary">Save settings</button>
+      <button id="reset" class="btn">Reset to defaults</button>
+      <span id="status" class="muted small"></span>
+    </p>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>
