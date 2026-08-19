@@ -19,30 +19,41 @@ Find, track and verify backlinks for moolchandhealthcare.com: page analysis, cur
 
 **Detailed description**
 ```
-Moolchand Backlink Builder is a working tool for the team that builds and maintains the hospital's backlink profile. It replaces a spreadsheet and a pile of browser tabs.
+Backlink Builder turns link building from a spreadsheet chore into something you do while you browse. Open any page and it tells you, instantly, whether that site links to you - and if it doesn't, what to do about it.
+
+WHY INSTALL IT
+
+Link building normally means a spreadsheet, twenty open tabs and a lot of guesswork: which directories are worth the effort, whether that link you were promised ever went live, whether the mention in last week's article was actually linked. This extension answers all three where the work happens - in the browser, on the page in front of you.
+
+Everything runs locally. There is no account to create, no subscription, no data leaving your machine.
 
 WHAT IT DOES
 
-1. Scans the page you are on
-Open any page and see instantly whether it links to your site, whether that link is dofollow or nofollow, and whether it sits in real content or in a footer. It also catches brand mentions that were never linked - usually the quickest links to win - and reads the page for signals like "accepts guest posts", "accepts listings" or a visible editorial contact.
+1. Tells you where you stand on any page
+Open a page and see whether it links to your site, whether that link is dofollow or nofollow, and whether it sits in real editorial content or is buried in a footer. It also catches brand mentions that were never linked - normally the fastest links you will ever win - and reads the page for signals worth knowing: does this site accept guest posts, does it take listings, is there a visible editorial contact, and does it look like it sells links.
 
-2. Suggests link sources that actually fit a hospital
-64 curated sources, not a generic directory dump: local citations, Indian health directories and doctor-profile platforms, medical tourism portals, accreditation and association listings, insurance and government empanelment records, expert-quote platforms used by journalists, healthcare trade press, clinical-training tie-ups with colleges, and community and CSR routes. Each one explains why it matters for a hospital and what to do next, and can be filtered by category, effort and cost.
+2. Suggests places worth pitching
+64 curated link sources, chosen rather than scraped: local business citations, health and doctor-profile directories, medical tourism portals, accreditation and association listings, government and insurance empanelment records, the expert-quote platforms journalists actually use, industry trade press, college clinical-training pages, and community and CSR routes. Each one explains why it matters and what to do next, and you can filter by category, effort and cost so you start with the wins you can get this week.
 
-3. Tracks the pipeline
-Move each prospect from Prospect to Contacted, Submitted, Live or Rejected, with notes for the contact, price and follow-up date. The Verify button fetches the page and reports whether your link is really there and whether it is dofollow. Export the whole pipeline to CSV or JSON for reporting.
+3. Tracks every prospect to the day it goes live
+Move each target through Prospect, Contacted, Submitted, Live or Rejected, with notes for the contact, the price and the follow-up date. Press Verify and the extension fetches the page and tells you whether your link is really there and whether it is dofollow - so a promised link that quietly never appeared does not sit in your pipeline for three months. Export the whole thing to CSV or JSON when it is time to report.
 
-4. Gives you what you need to place the link
-Anchor snippets in HTML, Markdown and BBCode with optional UTM tracking; a NAP citation block so every directory listing matches your Google Business Profile exactly; Hospital structured data; eight outreach email templates covering directory listings, guest posts, broken links, unlinked mentions, press enquiries, corporate partner pages, colleges and community camps; and a set of Google search operators for finding new prospects.
+4. Writes the boring parts for you
+Anchor snippets in HTML, Markdown and BBCode with optional UTM tracking. A name-address-phone citation block so every directory listing matches your Google Business Profile exactly. Structured data for your site. Eight outreach email templates covering directory submissions, guest post pitches, broken links, unlinked mentions, press enquiries, partner pages, colleges and community events. Plus a set of Google search operators for finding prospects nobody else has pitched.
 
-CONFIGURABLE
-The brand name, website, target domain, address, phone, sender details and UTM tags are all editable in Settings, so the extension works for any site you point it at.
+Right-click any page or link to save it as a prospect without breaking your flow.
+
+WHO IT IS FOR
+
+In-house marketers, SEO and digital teams, and agencies managing the link profile of a site they own or work on. It ships configured for a multi-speciality hospital, but the brand name, website, target domain, address, phone, sender details and UTM tags are all editable in Settings - point it at any site and it works the same way.
 
 PRIVACY
-Everything stays in your browser. Your prospect list and settings are held in local extension storage and are never sent anywhere. The extension has no account, no analytics and no server.
+
+Your settings and your prospect list are stored in local browser storage and never transmitted. There is no server, no analytics and no tracking of any kind. Pages are read only when you ask for a scan, used to draw the result on screen, and then discarded. The extension never modifies a page and never posts anything anywhere.
 
 HONEST LIMITS
-The authority figures shown on each source are hand-estimated bands for prioritisation, not measured Moz or Ahrefs metrics - no paid SEO API is called. Verify reads the page as served, so it cannot see links that appear only after JavaScript rendering or behind a login. This tool helps you earn and record links; it does not post anything automatically.
+
+The authority figures on each source are hand-estimated bands for prioritisation, not measured Moz or Ahrefs metrics - no paid SEO API is called. Verify reads the page as served, so it cannot see links that appear only after JavaScript rendering or behind a login. This tool helps you earn and record links; buying them is against search engine guidelines, which is why a link quality checklist ships with it.
 ```
 
 **Category** — `Workflow & Planning`
