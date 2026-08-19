@@ -65,6 +65,19 @@ Right-click any page or link to save it as a prospect without opening the popup.
   links from the "Paid link risk" sites it flags is against Google's spam policies — the
   checklist in the Tools tab exists for that reason.
 
+## Chrome Web Store submission
+
+`store/` holds everything the store dashboard asks for:
+
+* `store-listing.md` - the listing copy, single-purpose statement, per-permission
+  justifications, data-usage answers and distribution notes, ready to paste.
+* `privacy-policy.md` - a privacy policy to publish at a public URL (the store
+  requires one) and link from the Privacy tab.
+* `screenshots/` - four 1280x800 screenshots and the 440x280 promo tile.
+
+Regenerate the images after a UI change with `./build.sh && ./store/make-assets.sh`.
+They are rendered from the real popup in headless Chromium, not mocked up.
+
 ## Build from source
 
 ```bash
