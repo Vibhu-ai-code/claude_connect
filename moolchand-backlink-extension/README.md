@@ -19,13 +19,13 @@ A Manifest V3 Chrome extension for building and tracking backlinks to
 
 ### Option A — unpacked folder (recommended, works everywhere)
 
-1. Unzip `release/moolchand-backlink-builder-1.0.0.zip`.
+1. Unzip `release/moolchand-backlink-builder-1.0.1.zip`.
 2. Open `chrome://extensions` and turn on **Developer mode** (top right).
 3. Click **Load unpacked** and select the unzipped folder.
 
 ### Option B — the `.crx`
 
-`release/moolchand-backlink-builder-1.0.0.crx` is a signed CRX3 package. Note that
+`release/moolchand-backlink-builder-1.0.1.crx` is a signed CRX3 package. Note that
 Chrome deliberately blocks drag-and-drop installation of CRX files that did not come
 from the Chrome Web Store. A `.crx` therefore installs only when it is:
 

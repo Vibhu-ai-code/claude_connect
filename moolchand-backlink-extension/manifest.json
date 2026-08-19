@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Moolchand Backlink Builder",
-  "short_name": "Backlink Builder",
-  "version": "1.0.0",
-  "description": "Find, create and track relevant backlinks for moolchandhealthcare.com - page analysis, curated healthcare link sources, snippets and outreach.",
+  "short_name": "Backlinks",
+  "version": "1.0.1",
+  "description": "Find, track and verify backlinks for moolchandhealthcare.com: page analysis, curated link sources, snippets and outreach.",
   "minimum_chrome_version": "102",
   "icons": {
     "16": "icons/icon16.png",
